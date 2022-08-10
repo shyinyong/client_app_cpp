@@ -43,7 +43,7 @@ void initLinklist(LinkList* linklist) {
 //std::cout << endl;
 
 //    const std::string string_msg = "tokyo";
-//    const std::string file = "D:/Work/server/loginsrv/fish5-loginserver201001.log";
+//    const std::string file = "D:/Work/server/loginsrv/loginserver201001.log";
 //
 //    fstream log_file;
 //    log_file.open(file, std::ios::in);
@@ -60,24 +60,11 @@ void initLinklist(LinkList* linklist) {
 //    log_file.close();
 
 int main() {
-    ClientApp clientApp;
-
     BlockBuffer blockBuffer;
     blockBuffer.make_client_message(1605);
-//    buffer.write_uint32(1);
-
-//    buffer.make_client_message(1000);
-//    std::string account = "m-126108hgnn";
-//    std::string passwd = "a58870025879";
-//    buffer.write_uint16(1700);
-//    buffer.write_uint8(account.length());
-//    buffer.write_string(account);
-//    buffer.write_uint8(passwd.length());
-//    buffer.write_string(passwd);
-//    buffer.write_uint16(19);
-//    buffer.write_int32(1);
     blockBuffer.finish_message();
 
+    ClientApp clientApp;
     clientApp.sendData(blockBuffer);
 
     BlockBuffer receiveBuffer = clientApp.getReceiveBuffer();
